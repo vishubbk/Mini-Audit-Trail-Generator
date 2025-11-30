@@ -4,6 +4,7 @@ function App() {
   const [text, setText] = useState("");
   const [versions, setVersions] = useState([]);
   const [showHistory, setShowHistory] = useState(false);
+  const [loader, setLoader] = useState(false)
 
   const fetchHistory = async () => {
     const res = await fetch("https://mini-audit-trail-generator-1.onrender.com/api/data");
@@ -12,6 +13,7 @@ function App() {
   };
 
   const handleSave = async () => {
+    setLoader(true);
     await fetch("https://mini-audit-trail-generator-1.onrender.com/api/data", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -19,6 +21,7 @@ function App() {
     });
 
     fetchHistory();
+    setLoader(false);
     alert("Version saved successfully!");
   };
 
@@ -42,10 +45,11 @@ function App() {
 
       <div className="flex gap-4 justify-center mt-4">
         <button
+          disabled={loader}
           onClick={handleSave}
           className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold"
         >
-          Save
+          {loader ? "Saving..." : "Save"}
         </button>
 
         <button
