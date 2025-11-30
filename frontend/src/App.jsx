@@ -13,6 +13,10 @@ function App() {
   };
 
   const handleSave = async () => {
+    if(text.trim() === "") {
+      alert("Please enter some text before saving.");
+      return;
+    }
     setLoader(true);
     await fetch("https://mini-audit-trail-generator-1.onrender.com/api/data", {
       method: "POST",
@@ -22,6 +26,7 @@ function App() {
 
     fetchHistory();
     setLoader(false);
+    setText("");
     alert("Version saved successfully!");
   };
 
