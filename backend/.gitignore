@@ -1,0 +1,30 @@
+# Node.js dependencies
+node_modules/
+
+# Build artifacts
+dist/
+build/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Test coverage reports
+coverage/
+
+# npm debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional: if using a specific database for local development
+*.sqlite
+*.db
