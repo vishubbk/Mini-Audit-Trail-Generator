@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 // ✅ CORS Setup
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://mini-audit-trail-generator-1.onrender.com"], // apna frontend URL daalna
+    origin: ["http://localhost:5173", "https://mini-audit-trail-generator-teau.onrender.com/"], // apna frontend URL daalna
     credentials: true,
   })
 );
