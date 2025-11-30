@@ -6,13 +6,13 @@ function App() {
   const [showHistory, setShowHistory] = useState(false);
 
   const fetchHistory = async () => {
-    const res = await fetch("http://localhost:4000/api/data");
+    const res = await fetch("https://mini-audit-trail-generator-1.onrender.com/api/data");
     const data = await res.json();
     setVersions(data);
   };
 
   const handleSave = async () => {
-    await fetch("http://localhost:4000/api/data", {
+    await fetch("https://mini-audit-trail-generator-1.onrender.com/api/data", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text }),
